@@ -1,5 +1,8 @@
 import os
 
+print(os.system)
+print(os.name)
+
 DEVELOPMENT = "development"
 PRODUCTION = "production"
 STAGING = "staging"
