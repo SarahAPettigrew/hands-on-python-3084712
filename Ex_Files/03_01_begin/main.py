@@ -18,5 +18,5 @@ with open("laureates.csv", "r") as f:
 
 for laureate in laureates:
     if laureate["surname"] == "Einstein":
-        pprint(laureate)
+        print(laureate)
         break
