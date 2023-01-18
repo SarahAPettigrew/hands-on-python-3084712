@@ -1,0 +1,57 @@
+from functools import reduce
+
+
+class Student:
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def __repr__(self):
+        return f"{self.name}: {self.score}"
+
+
+students = [Student("Jo", 0.46), Student("Sally", 0.86), Student(
+    "Belle", 0.56), Student("Maz", 0.98), Student("Tay", 0.46)]
+
+
+failing_students = []
+for student in students:
+    if student.score < 0.7:
+        failing_students.append(student)
+
+filter_list = list(filter(lambda student: student.score < 0.7, students))
+
+print(filter_list)
+
+map_results = list(map(
+    lambda student: f"{student.name} Passed" if student.score >= 0.7 else f"{student.name} Failed", students))
+
+# print(map_results)
+
+numbers = [1, 2, 3, 4, 5]
+big = [111, 222, 333, 444]
+numbers_results = list(map(lambda x: x*2, (numbers, big)))
+print(numbers_results)
+
+filter_numbers = list(filter(lambda x: x % 2 == 0, big))
+print(filter_numbers)
+
+num = list(map(lambda x: x*2, ([3, 4, 5, 6], [6, 8, 45])))
+print(num)
+
+score_total = 0
+for student in students:
+    score_total += student.score
+
+
+reduce_total = reduce(
+    lambda total, student: student.score + total, students, 0)
+print(reduce_total / len(students))
+
+print(score_total / len(students))
+
+
+numbers = [1, 2, 3, 4, 5]
+
+big_number = reduce(lambda total, number: number * total, numbers)
+print(big_number)

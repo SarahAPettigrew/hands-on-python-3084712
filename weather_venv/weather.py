@@ -31,9 +31,12 @@ class City:
         self.temp_max = response_json["main"]["temp_max"]
 
     def temp_print(self):
-        print(f"In {self.name} it is currently {self.temp}° C")
-        print(f"Today's High: {self.temp_max}° C")
-        print(f"Today's Low: {self.temp_min}° C")
+        units_symbol = "C"
+        if self.units == "imperial":
+            units_symbol = "F"
+            print(f"In {self.name} it is currently {self.temp}° {units_symbol}}")
+            print(f"Today's High: {self.temp_max}° {units_symbol}")
+            print(f"Today's Low: {self.temp_min}° {units_symbol}")
 
 
 # include Wellington lon and lat - check order

@@ -1,7 +1,10 @@
-import this
+#import this
 
 try:
-    import camelcas
+    import camelcase
+    import sys
+
+    print(sys.version)
 
     c = camelcase.CamelCase()
     txt = 'this is some text'
