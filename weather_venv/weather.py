@@ -1,0 +1,41 @@
+# lab at https://www.linkedin.com/learning/intermediate-python-for-non-programmers/classes-and-weather?autoSkip=true&autoplay=true&resume=false&u=75768826
+
+# this virtual environment created with
+# python -m venv weather_venv
+# source weather_venv/bin/activate (Unix) OR .\weather_venv\Scripts\activate (Windows)
+# deactivate
+
+
+import requests
+
+
+class City:
+    def __init__(self, name, lat, lon, units='metric'):
+        self.name = name
+        self.lat = lat
+        self.lon = lon
+        self.units = units
+        self.get_data()
+
+    def get_data(self):
+        try:
+            # paste in url with variable names placed in api parameters
+            response = requests.get(f"")
+
+        except:
+            print("Something went wrong - no internet?")
+
+        response_json = response.json()
+        self.temp = response_json["main"]["temp"]
+        self.temp_min = response_json["main"]["temp_min"]
+        self.temp_max = response_json["main"]["temp_max"]
+
+    def temp_print(self):
+        print(f"In {self.name} it is currently {self.temp}° C")
+        print(f"Today's High: {self.temp_max}° C")
+        print(f"Today's Low: {self.temp_min}° C")
+
+
+# include Wellington lon and lat - check order
+my_city = City("Wellington", lon, lat)
+my_city.temp_print()
