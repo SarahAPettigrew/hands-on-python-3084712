@@ -20,7 +20,8 @@ class City:
     def get_data(self):
         try:
             # paste in url with variable names placed in api parameters
-            response = requests.get(f"")
+            response = requests.get(
+                f"https://api.openweathermap.org/data/2.5/weather?units={self.units}&lat={self.lat}&lon={self.lon}&appid=3df07b70b0411e8f64ea4ea4a3ae297a")
 
         except:
             print("Something went wrong - no internet?")
@@ -34,11 +35,11 @@ class City:
         units_symbol = "C"
         if self.units == "imperial":
             units_symbol = "F"
-            print(f"In {self.name} it is currently {self.temp}° {units_symbol}}")
-            print(f"Today's High: {self.temp_max}° {units_symbol}")
-            print(f"Today's Low: {self.temp_min}° {units_symbol}")
+        print(f"In {self.name} it is currently {self.temp}° {units_symbol}")
+        print(f"Today's High: {self.temp_max}° {units_symbol}")
+        print(f"Today's Low: {self.temp_min}° {units_symbol}")
 
 
 # include Wellington lon and lat - check order
-my_city = City("Wellington", lon, lat)
+my_city = City("Wellington", 41.2924, 174.7787)
 my_city.temp_print()
