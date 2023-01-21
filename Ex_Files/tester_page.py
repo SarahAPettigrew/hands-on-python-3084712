@@ -178,3 +178,9 @@
 # print(Middle.__getattribute__)
 # print(Middle.__dict__)
 # print(Middle.__dir__)
+
+import math
+print(dir(math))
+
+from datetime import datetime
+print(dir(datetime))
